@@ -32,12 +32,12 @@ def setting_bg():
     st.markdown(f""" 
     <style>
         .stApp {{
-            background: linear-gradient(to right, #2b5876, #4e4376);
+            background: linear-gradient(to right, #2b5876, #00f900);
             background-size: cover;
             transition: background 0.5s ease;
         }}
         h1,h2,h3,h4,h5,h6 {{
-            color: #f3f3f3;
+            color: #faca2b;
             font-family: 'Roboto', sans-serif;
         }}
         .stButton>button {{
@@ -58,6 +58,9 @@ def setting_bg():
 
 setting_bg()
 
+# INITIALIZING THE EasyOCR READER
+reader = easyocr.Reader(['en'])
+
 # CREATING OPTION MENU
 selected = option_menu(None, ["Home", "Upload & Extract", "Modify"],
                        icons=["home", "cloud-upload-alt", "edit"],
@@ -70,8 +73,6 @@ selected = option_menu(None, ["Home", "Upload & Extract", "Modify"],
                                "container": {"max-width": "6000px", "padding": "10px", "border-radius": "5px"},
                                "nav-link-selected": {"background-color": "#AB63FA", "color": "white"}})
 
-# INITIALIZING THE EasyOCR READER
-reader = easyocr.Reader(['en'])
 
 # CONNECTING WITH MYSQL DATABASE
 mydb = sql.connect(host="localhost",
